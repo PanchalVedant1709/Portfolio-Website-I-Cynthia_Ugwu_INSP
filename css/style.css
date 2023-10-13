@@ -4,21 +4,23 @@
     padding: 0;
     font-family: "General Sans";
     font-weight: 400;
-
+    height: fit-content;
 }
 
-::selection{
+
+
+/* ::selection{
     background-color: #fff;
     color: black;
 }
 
 ::-webkit-scrollbar{
-    display: none;
-}
+    display: inline
+} */
 
 body{
-    -ms-overflow-style: none; 
-  scrollbar-width: none;
+    /* -ms-overflow-style: none;  */
+    scrollbar-width: 5px;
 }
 
 html, body{
@@ -26,6 +28,7 @@ html, body{
     height: 100%;
     background-color: black;
     color: #fff;
+
 }
 
 #pointer-cir{
@@ -37,11 +40,12 @@ html, body{
     position: absolute;
     z-index: 999;
     border-radius: 50%;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1) .7fels;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) .7s;
 }
 
 #main{
     width: 100%;
+    padding-bottom: 40px;
 }
 
 /* --------------------------------------------------------------------------- */
@@ -184,7 +188,20 @@ html, body{
     border-radius: 25px;
     background-color: #fff;
     opacity: .6;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
 }
+
+#herofooter .circle:hover{
+    transform: scale(1.1);
+}
+
+
+/* arrow */
+.ri-arrow-down-s-line{
+   font-size: 20px;
+}
+
 
 #iconset{
     display: flex;
@@ -194,7 +211,6 @@ html, body{
 
 /* ------------------------------------------------------------------------------------------------------------------------------- */
 
-/* About */
 
 
 #second{
@@ -208,7 +224,6 @@ html, body{
 }
 
 .elem{
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -219,9 +234,19 @@ html, body{
     
 }
 
-.elem:hover h1{
+.elemlast{
+    content: '';
+    align-items: center;
+    width: 100%;
+    padding: 4vw 3vw;
+    padding-right: 0%;
+    border-top: 1px solid #888;
+}
+
+.elem h1:hover{
     opacity: 0.2;
     margin-left: 40px;
+    cursor: pointer;
 }
 
 .elem h1{
@@ -229,28 +254,21 @@ html, body{
     font-size: 7vw;
     font-weight: 500;
     opacity: 0.6;
-    transition: 0.4s ease-in-out ;
+    transition: 0.5s ease-in-out ;
 }
 
-.elem img{
-    display: none;
-    opacity: 0;
-    z-index: 3;
-    position: absolute;
-    width: 200px;
-    transition: 0.1s ease-in-out;
-}
 
 
 /* -------------------------------------------------------------------------------------------- */
 /* 3rd section */
 
+
+
 #about{
     display: flex;
     align-items: start;
     color: #fff;
-    padding: 10vw 10vw;
-    padding-top: 30vw;
+    padding-top: 60vw;
     padding-left: 38vw;
     width: 100%;
     gap: 90px;
@@ -259,6 +277,9 @@ html, body{
 #imageabout{
     display: flex;
     align-items: flex-start;
+    /* cursor: none;     */
+    cursor: url('https://cdn.custom-cursor.com/packs/9242/comics-the-dog-man-naomi-pack.png'),none;    
+
 }
 
 #about img{
@@ -269,6 +290,7 @@ html, body{
     align-self: flex-start;
     filter: grayscale(100);
     transition: all ease-in-out .5s;
+    
 }
 
 #about img:hover{
@@ -335,11 +357,45 @@ html, body{
 }
 
 #subscribe h3{
+    width: fit-content;
+     display: inline-block;
+    position: relative;
     line-height: 2;
     font-weight: 600;
     font-size: 1.2vw;
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
+    z-index: 1;
+    transition: width 0.8s ease-in-out, color 1s; 
+
+}
+
+#subscribe h3::after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    transition: width 0.5s ease-in-out;
+    z-index: -1;
+}
+
+
+
+#subscribe h3:hover{
+    padding-right: 10px; 
+    color: black;
+}
+
+
+
+
+#subscribe h3:hover::after{
+    width: 100%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -347,7 +403,7 @@ html, body{
 /* footer */
 
 #footer{
-    padding: 20px 40px;
+    padding: 0px 40px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -372,17 +428,81 @@ html, body{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
-     
-}#footerright a{
+    gap: 40px; 
+}
+
+
+#footerright a{
     text-decoration: none;
     color: #fff;
     font-size: 1vw;
     font-weight: 500;
     text-transform: uppercase;
+    transition: transform 0.8s ease-in-out;
+    text-align: center;
+    
+}
+
+#footerright a i{
+    font-size: 25px;
+}
+
+#footerright a i:hover{
+    color: #999;
+}
+
+#footerright a:hover{
+    transform: scale(0.9);
+    
+}
+
+#weekday{
+    cursor: pointer;
+}
+#weekday:hover{
+    color: grey;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 
+#footer_bottom{
+    padding: 0px 40px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+.lang-name{
+    
+    font-size: 12px;
+    color: #888;
+}
 /* --------------------------------------------------------------------------------------------------------------------- */
 
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background-color: lightblue;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Ensure the cursor doesn't interfere with user interactions */
+}
+
+/* Style the cursor shape */
+.custom-cursor::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: lightcoral;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

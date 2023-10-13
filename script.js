@@ -1,8 +1,21 @@
-const scroll = new LocomotiveScroll({
-    el: document.querySelector('#main'),
-    smooth: true
+// locomotive scroll 
+var sc = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true,
+    duration: 2
 });
 
+
+//internal redirecting page
+const next_btn = document.getElementById('sc_next')
+next_btn.addEventListener('click',function () {
+    sc.scrollTo(document.querySelector("#second"),200) //first argument is target, second is offset
+})
+
+const end_btn  = document.getElementById('sc_end')
+end_btn.addEventListener('click',function () {
+    sc.scrollTo(document.body.scrollHeight)
+})
 
 
 
@@ -11,42 +24,87 @@ const scroll = new LocomotiveScroll({
 function mouseCirclePointer(xscale, yscale){
     window.addEventListener("mousemove", function(e){
         document.querySelector("#pointer-cir").style.display = `unset`
-        document.querySelector("#pointer-cir").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(${xscale}, ${yscale})`
+        // document.querySelector("#pointer-cir").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(${xscale}, ${yscale})`
+        document.querySelector("#pointer-cir").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1,1)`
     })
 }
 mouseCirclePointer();
 
 
+
 //skew animation
-var timeout;
-function skewPointerWhenMoving(){
+// var timeout;
+// function skewPointerWhenMoving(){
 
-    // default scale value
-    var xscale = 1;
-    var yscale = 1;
-    var xprev ;
-    var yprev ;  
-    window.addEventListener('mousemove', function(e){
-       clearTimeout(timeout)
+//     // default scale value
+//     var xscale = 1;
+//     var yscale = 1;
+//     var xprev ;
+//     var yprev ;  
+//     window.addEventListener('mousemove', function(e){
+//        clearTimeout(timeout)
 
-        xscale = gsap.utils.clamp(.8,1.2,e.clientY- yprev)
-        yscale = gsap.utils.clamp(.8,1.2,e.clientX- xprev)
+//         xscale = gsap.utils.clamp(.8,1.2,e.clientY- yprev)
+//         yscale = gsap.utils.clamp(.8,1.2,e.clientX- xprev)
 
-        xprev = e.clientX
-        yprev = e.clientY
+//         xprev = e.clientX
+//         yprev = e.clientY
 
-        mouseCirclePointer(xscale, yscale)
-        timeout = setTimeout(() => {
-            document.querySelector("#pointer-cir").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1, 1)`
-        }, 100);
-    })
+//         mouseCirclePointer(xscale, yscale)
+//         timeout = setTimeout(() => {
+//             document.querySelector("#pointer-cir").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1, 1)`
+//         }, 100);
+//     })
+// }
+// skewPointerWhenMoving()
+
+
+
+//arrow animation
+// Argument pass fn call==========>hoverEvent() =========> arrowTransition() 
+let nextCircle = document.querySelector('#sc_next')
+hoverEvent(nextCircle);
+let endCircle = document.querySelector('#sc_end')
+hoverEvent(endCircle);
+
+
+
+function hoverEvent(element){
+    element.addEventListener('mouseenter',function(e){
+        var arr_ele = element.firstChild;
+        console.log(arr_ele);
+        arrowTransition(arr_ele)
+            
+})
 }
-skewPointerWhenMoving()
+
+function arrowTransition(scrollele)
+{
+    scrollsvg = scrollele;
+
+    gsap.to(scrollsvg,{
+        y:'100%',
+        duration: 0.5,
+        ease: 'power2.inOut',
+        onComplete: ()=>{
+            
+            gsap.fromTo(scrollsvg,{
+                y: '-100%',
+                duration: 0.8,
+                ease: 'power2.inOut'
+            },
+            {   y:'0%',
+                duration: 0.5,
+                ease: 'power2.inOut'
+            })
+        }
+    })
+
+}
+  
 
 
-
-
-// first page slidde up animation
+// first page animation
 function firstPageAnimation(){
     var tl = gsap.timeline();
     
@@ -75,45 +133,16 @@ function firstPageAnimation(){
 }
 firstPageAnimation()
 
-//elem image float 
-// document.querySelectorAll(".elem").forEach(function (elem){
-//     var rotate = 0;
-//     var diffrot = 0;
-    
-   
-
-//     // elem.addEventListener('mousemove', function(e){
-//     //    var diff = e.clientY - elem.getBoundingClientRect().top;
-//     //    diffrot = e.clientX - rotate;
-//     //    rotate = e.clientX;
-    
-//     //    gsap.to(elem.querySelector("img"), {
-//     //     opacity: 1,
-//     //     ease: Power3,
-//     //     top: diff,
-//     //     left: e.clientX,
-//     //     rotate: gsap.utils.clamp(-20,20,diffrot * 0.2)
-//     //    }) 
-//     // })
-
-   
-
-//     elem.addEventListener('mouseleave', function(e){
-//        gsap.to(elem.querySelector("img"), {
-//         opacity: 0,
-//         ease: Power3,
-//         duration: 1
-//        }) 
-//     })
-
-// })
 
 
 //timestamp footer
+function displayFooter(){
+
 
 let timeslot = document.querySelector("#timestamp")
 let dateslot = document.querySelector("#datestamp")
 let weekdslot = document.querySelector("#weekday")
+
 
 const op_d_m = {
     month: "long",
@@ -146,30 +175,89 @@ const timechange = setInterval(() => {
 }, 1000);
 
 
-Array.prototype.random = function(){
+
+Array.prototype.randomNum = function(){
     return this[Math.floor((Math.random()*this.length))];
 
 }
 
-weekdslot.addEventListener('click',function(){
-    let lang = ["en", "kor", "hi", "guj","jap"]
 
-    let randolang = lang.random();
+
+function getLanguageName(langCode){
+    const laguagename = {
+        "en":"English",
+        "kor": "Korean",
+        "hi":"Hindi",
+        "guj" : "Gujarati",
+        "ja": "Japanese",
+        "ger": "German", 
+        "fr": "French", 
+        "ar": "Arabic", 
+        "es": "Spanish"
+    }
+    console.log(laguagename[langCode]);
+    return laguagename[langCode] || langCode;
+}
+
+
+let previousLang;
+weekdslot.addEventListener('click',function(){
+    
+
+    const lang = ["en", "kor", "hi", "guj", "ja", "ger", "fr", "ar", "es"]
+    // const lang = ["en", "kor", "hi"]
+    let randolang
+
+    do {
+        randolang = lang.randomNum()
+       
+    } while(randolang===previousLang)
+
+    previousLang = randolang;
+
    
     let weekday = new Date().toLocaleDateString(randolang, op_wd)
     weekdslot.innerHTML = `${weekday}`
 
-        
-  
+
+    let langslot = document.querySelector("#footer_bottom")
+    // creating language name element
+    let langName = document.createElement("p")
+    langName.textContent = getLanguageName(randolang);
+    langName.className = "lang-name"
+
+    let existingLangName = langslot.querySelector(".lang-name");
+    if (existingLangName) {
+        langslot.removeChild(existingLangName);
+    }
+    langslot.appendChild(langName)
+   
 
 
-})
-// weekdslot.addEventListener('mouseleave',function(){
-//       setTimeout(() => {
-//           let weekday = new Date().toLocaleDateString("en", op_wd)
-//           weekdslot.innerHTML = `${weekday}`
-        
-//       }, 300);
+    //  fade in animation
+    gsap.fromTo(langName, { opacity: 0 }, { opacity: 1, duration: 0.5 });
+
+    // this will remove the langname after one second
+    setTimeout(function () {
+        // Use GSAP to animate the fade-out
+        gsap.to(langName, { opacity: 0, duration: 0.5, onComplete: function () {
+            if (langName.parentElement === langslot) {
+                langslot.removeChild(langName);
+            }
+        }});
+    }, 1000);
 
 
-// })
+
+
+
+   
+
+
+
+
+    //function for getting language name
+   
+
+})}
+displayFooter()
