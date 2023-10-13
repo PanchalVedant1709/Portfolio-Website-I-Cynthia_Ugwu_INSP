@@ -1,5 +1,5 @@
-# Inspired from an award winning website
+ Inspired from an award winning website
 
-# cynthiaugwu.com
+ # cynthiaugwu.com
 
-# modern and slick website with tons of futuristic and materialistic elements and effects
+ modern and slick website with tons of futuristic and materialistic elements and effects
