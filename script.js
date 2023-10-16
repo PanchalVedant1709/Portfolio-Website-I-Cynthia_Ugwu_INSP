@@ -1,10 +1,3 @@
-// locomotive scroll 
-var sc = new LocomotiveScroll({
-    el: document.querySelector("#main"),
-    smooth: true,
-    duration: 2
-});
-
 
 //internal redirecting page
 const next_btn = document.getElementById('sc_next')
@@ -20,19 +13,13 @@ end_btn.addEventListener('click',function () {
 
 
 
-// pointer dot
-function mouseCirclePointer(xscale, yscale){
-    window.addEventListener("mousemove", function(e){
-        document.querySelector("#pointer-cir").style.display = `unset`
-        // document.querySelector("#pointer-cir").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(${xscale}, ${yscale})`
-        document.querySelector("#pointer-cir").style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1,1)`
-    })
-}
-mouseCirclePointer();
 
 
 
-//skew animation
+//  Prototype of skew pointer
+// /*
+
+// //skew animation
 // var timeout;
 // function skewPointerWhenMoving(){
 
@@ -56,16 +43,22 @@ mouseCirclePointer();
 //         }, 100);
 //     })
 // }
-// skewPointerWhenMoving()
+// skewPointerWhenMoving();
 
+// */
 
 
 //arrow animation
 // Argument pass fn call==========>hoverEvent() =========> arrowTransition() 
+
+
 let nextCircle = document.querySelector('#sc_next')
 hoverEvent(nextCircle);
 let endCircle = document.querySelector('#sc_end')
 hoverEvent(endCircle);
+
+
+
 
 
 
@@ -104,11 +97,10 @@ function arrowTransition(scrollele)
   
 
 
-// first page animation
+// // first page animation
 function firstPageAnimation(){
     var tl = gsap.timeline();
     
-
 
     tl.from("#nav", {       
         y: '-10',               // from this to current position

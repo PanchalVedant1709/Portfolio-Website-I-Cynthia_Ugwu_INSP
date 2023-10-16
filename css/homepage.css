@@ -1,0 +1,423 @@
+/* Hero Section */
+#hero{
+    display: flex;
+    flex-direction: column;
+    columns: 3;
+    justify-content: space-evenly;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    padding: 2vw 0 2vw 0;
+}
+
+#heading{
+    margin-top: 90px;   
+}
+
+.bounding{
+    width: fit-content;
+    /* background-color: #888; */
+    overflow: hidden;
+}
+
+.bounding .boundingelem{
+    transform: translateY(100%);
+}
+
+#heading h1{
+    margin-left: 40px;
+    font-family: 'General Sans Medium';
+    font-size: 10vw;
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+
+#heading h1::selection{
+    background-color: white;
+    color: black;
+    user-select: text;
+   
+}
+
+#heading #secondh1{
+    margin-left: 230px;
+}
+
+.blocktext{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: fit-content;
+
+}
+
+.blocktext h5{
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: end;
+    line-height: 3;
+}
+
+.blocktext h5::selection{
+    background-color: white;
+    color: black;
+}
+
+#section3{
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+#section3 h5{
+    font-size: 1vw;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-right: 40px;
+    
+}
+
+#herofooter{
+    padding: 0 2vw;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    bottom: 3%;
+    text-transform: uppercase;
+    justify-content: space-between;
+}
+
+
+#herofooter a:first-child::before{
+    content: 'website inspiration:';
+    font-size: 0.8vw;
+    position: absolute;
+    bottom: 100%;
+}
+
+#herofooter a{
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s ease !important;
+}
+
+#herofooter a #side-arrow{
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    transform: rotate(0deg);
+    font-size: 1vw;
+}
+
+#herofooter a:hover  #side-arrow{
+    color: #888;
+    transform: rotate(-45deg) scale(1.2);
+    
+}
+
+
+
+/* #herofooter a:hover .ri-arrow-right-s-line{
+    color: #333;
+    transform: rotate(90deg);
+} */
+
+#herofooter a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    height: 1px;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    transform: translateY(0.7vh);
+}
+
+#herofooter a:hover::after{
+    opacity: 1;
+    width: 100%;
+
+}
+
+
+
+/* redirecting button - circle with arrow */
+
+#herofooter .circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #fff;
+    opacity: .6;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+#herofooter .circle:hover{
+    transform: scale(1.1);
+}
+
+
+/* arrow */
+.ri-arrow-down-s-line{
+   font-size: 20px;
+}
+
+#iconset{
+    display: flex;
+    color: black;
+    gap: 5px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Second Section - Navigation Headers */
+
+#second{
+    padding: 10px 40px;
+    padding-top: 200px;
+    padding-right: 10vw;
+    width: 100%;
+    height: 200vh;
+    color: white;
+}
+
+#second a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.pageFull{
+    width: 100%;
+
+}
+
+.elem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 4vw 3vw;
+    padding-right: 0%;
+    border-top: 1px solid #888;
+    
+}
+
+.elemlast{
+    align-items: center;
+    width: 100%;
+    padding: 4vw 3vw;
+    padding-right: 0%;
+    border-top: 1px solid #888;
+}
+
+
+a .elem h1{
+    text-transform: uppercase;
+    font-size: 7vw;
+    font-weight: 500;
+    opacity: 0.6;
+    transition: 0.5s ease-in-out ;
+}
+
+a .elem h1:hover{
+    opacity: 0.2;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+
+
+
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+.third{
+    width: 100vw;
+    /* height: 80vh; */
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    padding: 20px 40px;
+}
+
+
+/* About photo and desc */
+
+
+
+#about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    height: 70%;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+#about span{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    gap: 50px;
+    
+}
+
+#imageabout{
+    display: flex;
+    top: 0;
+    cursor: none;    
+}
+
+#about img{
+    width: 17vw;
+    height: 17vw;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(100);
+    transition: all ease-in-out .5s;
+    
+}
+
+#about img:hover{
+    border-radius: 50%;
+    object-fit: cover;
+    align-self: flex-start;
+    filter: none;
+}
+
+#textabout{
+    /* width: 29rem    */
+    width: 30vw   
+}
+
+#textabout h5{
+    font-size: 2vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+#textabout p{
+    font-size: 1.2vw;
+    line-height: 1.5;
+    text-align: justify;
+    opacity: .6;
+   
+}
+
+#btn-lt{
+    font-size: 1vw;
+    padding: 6px 20px;
+    background-color: black;
+    color: #fff;
+    border: 1px white solid;
+    font-weight: 400;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+#btn-lt:hover{
+    background-color: #fff;
+    color: black;
+}
+
+
+/* ------------------------------------------------------------- */
+
+/* Follow me o instagram */
+#subscribe{
+    width: 100%;
+    font-weight: 500;
+}
+
+
+#subscribe h5{
+    text-transform: uppercase;
+    opacity: .6;
+}
+
+#subscribe h3{
+    width: fit-content;
+     display: inline-block;
+    position: relative;
+    line-height: 2;
+    font-weight: 600;
+    font-size: 1.2vw;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
+    transition: width 0.8s ease-in-out, color 1s; 
+
+}
+
+#subscribe h3::after{
+    content: '';
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    transition: width 0.5s ease-in-out;
+    z-index: -1;
+}
+
+
+
+#subscribe h3:hover{
+    padding-right: 10px; 
+    color: black;
+}
+
+
+
+
+#subscribe h3:hover::after{
+    width: 100%;
+}
+
+
+/* ----------------------------------- */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    background-color: lightblue;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none; /* Ensure the cursor doesn't interfere with user interactions */
+}
+
+/* Style the cursor shape */
+.custom-cursor::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: lightcoral;
+    border: 2px solid #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
