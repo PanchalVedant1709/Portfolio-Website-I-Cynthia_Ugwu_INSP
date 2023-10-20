@@ -17,7 +17,6 @@
 
 .bounding{
     width: fit-content;
-    /* background-color: #888; */
     overflow: hidden;
 }
 
@@ -209,7 +208,6 @@
     align-items: center;
     width: 100%;
     padding: 4vw 3vw;
-    padding-right: 0%;
     border-top: 1px solid #888;
     
 }
