@@ -66,8 +66,10 @@
 
 #card h1{
     
-    font-family: "General Sans Medium";
+    /* font-family: "General Sans Medium"; */
+    font-family: "Open Sans";
     font-size: 6vw;
+    font-weight: 800;
     text-transform: uppercase;
     opacity: 0.8;
     padding: 2vw 1vw;
